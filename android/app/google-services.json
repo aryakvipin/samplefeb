@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "881303382307",
+    "project_id": "my-map-feb",
+    "storage_bucket": "my-map-feb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881303382307:android:6ac0e5af66873b5c3a4496",
+        "android_client_info": {
+          "package_name": "com.appdev.samplefeb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881303382307-1ep6amr3qgpdhvroo0l8cec40h9u80nq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appdev.samplefeb",
+            "certificate_hash": "594681038817c9ef12b522a29f066788863a7f3c"
+          }
+        },
+        {
+          "client_id": "881303382307-vkfj8gmpi0t6sn7phofjckjobdblto48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC21ONnr-W9aCGa9Jqnq1NB4ktBtDtSd38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881303382307-vkfj8gmpi0t6sn7phofjckjobdblto48.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
