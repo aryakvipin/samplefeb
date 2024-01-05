@@ -36,6 +36,7 @@ class _MyTODoState extends State<MyTODo> {
     await tbox.add(task);
     loadTask();
   }
+
 /// read all the data
   void loadTask() {
     final data = tbox.keys.map((id) {
@@ -58,7 +59,7 @@ class _MyTODoState extends State<MyTODo> {
     loadTask();
   }
 
-  ///reading single data
+  //reading single data
   Map<String,dynamic> readData(int key){
     final data = tbox.get(key);
     return data;
@@ -96,7 +97,7 @@ class _MyTODoState extends State<MyTODo> {
                             icon: const Icon(Icons.edit_calendar)),
                         IconButton(
                             onPressed: () {
-                              deleteTask(task[index]["key"]);
+                               deleteTask(task[index]["key"]);
                             }, icon: const Icon(Icons.delete))
                       ],
                     ),
@@ -110,8 +111,8 @@ class _MyTODoState extends State<MyTODo> {
     );
   }
 
-  final TextEditingController name_controller = TextEditingController();
-  final TextEditingController details_controller = TextEditingController();
+  final  name_controller = TextEditingController();
+  final  details_controller = TextEditingController();
 
   void showForm(BuildContext context, int? id) async {
     if(id != null){
@@ -122,7 +123,7 @@ class _MyTODoState extends State<MyTODo> {
     }
     showModalBottomSheet(
         context: context,
-        isScrollControlled: true,
+         isScrollControlled: true,
         elevation: 5,
         builder: (context) {
           return Container(
@@ -152,10 +153,7 @@ class _MyTODoState extends State<MyTODo> {
                 ElevatedButton(
                     onPressed: () async {
                       if (id == null) {
-                        createTask({
-                          'name': name_controller.text,
-                          'details': details_controller.text
-                        });
+                        createTask({'name': name_controller.text, 'details': details_controller.text});
                       }
                       if (id != null) {
                         updateTask(id ,{'name' :name_controller.text, 'details' :details_controller.text});

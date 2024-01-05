@@ -31,6 +31,8 @@ class _MainSQLState extends State<MainSQL> {
     });
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,11 +41,13 @@ class _MainSQLState extends State<MainSQL> {
       ),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
-          : ListView.builder(
+          :
+      ListView.builder(
               itemCount: note_from_db.length,
               itemBuilder: (context, index) {
                 return Card(
                   child: ListTile(
+
                     title: Text("${note_from_db[index]['title']}"),
                     subtitle: Text(note_from_db[index]['note']),
                     trailing: SizedBox(
@@ -57,7 +61,7 @@ class _MainSQLState extends State<MainSQL> {
                               icon: const Icon(Icons.edit)),
                           IconButton(
                               onPressed: () {
-                                deleteNote(note_from_db[index]['id']);
+                               deleteNote(note_from_db[index]['id']);
                               },
                               icon: const Icon(Icons.delete)),
                         ],
@@ -67,7 +71,7 @@ class _MainSQLState extends State<MainSQL> {
                 );
               }),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => showForm(null),
+        onPressed: () =>showForm(null),
         child: const Icon(Icons.add),
       ),
     );
@@ -77,15 +81,15 @@ class _MainSQLState extends State<MainSQL> {
   final note = TextEditingController();
 
   void showForm(int? id) async {
-    if (id != null) {
-      final existingNote = note_from_db.firstWhere((note) => note['id'] == id);
+   if (id != null) {
+     final existingNote = note_from_db.firstWhere((note) => note['id'] == id);
       title.text = existingNote['title'];
       note.text = existingNote['note'];
-    }
+   }
 
     showModalBottomSheet(
         context: context,
-        elevation: 3,
+
         isScrollControlled: true,
         builder: (context) => Container(
               padding: EdgeInsets.only(
@@ -141,6 +145,8 @@ class _MainSQLState extends State<MainSQL> {
     await SQLHelper.updateNote(id, title.text, note.text);
     refreshData();
   }
+
+
 
   void deleteNote(int id) async {
     await SQLHelper.deletenote(id);

@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> WishList()));
                 },
-                icon: const Icon(Icons.favorite),
+                icon:  Icon(Icons.favorite),
                 label:  Text("Go To WishList ${movielist.length}")),
             const SizedBox(
               height: 20,
@@ -37,7 +37,10 @@ class Home extends StatelessWidget {
                 child: Center(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: ListView.builder(itemBuilder: (context, index) {
+                child: ListView.builder(
+                  itemCount:movies.length ,
+
+                    itemBuilder: (context, index) {
                   var movie = movies[index];
                   return Card(
                     key: ValueKey(movie.title),
@@ -48,7 +51,7 @@ class Home extends StatelessWidget {
                         icon: Icon(Icons.favorite),
                         color: movielist.contains(movie)
                             ? Colors.red
-                            : Colors.white,
+                            : Colors.blue,
                         onPressed: () {
                           if (!movielist.contains(movie)) {
                             context.read<MovieProvider>().addToList(movie);

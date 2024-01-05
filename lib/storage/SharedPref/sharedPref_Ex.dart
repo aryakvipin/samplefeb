@@ -16,8 +16,11 @@ class LoginSamp extends StatefulWidget {
 class _LoginSampState extends State<LoginSamp> {
 
   late SharedPreferences data;
+
   TextEditingController username = TextEditingController();
   TextEditingController password = TextEditingController();
+
+
   late bool newuser;
 
   @override

@@ -1,5 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:samplefeb/passing%20data%20between%20screen/mainPage.dart';
+import 'package:samplefeb/passing%20data%20between%20screen/productlist.dart';
 import 'package:samplefeb/register.dart';
 
 import 'home.dart';
@@ -112,7 +114,7 @@ class _LoginValidationState extends State<LoginValidation> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomeScreen()));
+                                builder: (context) => ProductMain()));
                       }
                     },
                     child: const Text('Login', style: TextStyle(fontSize: 15))),

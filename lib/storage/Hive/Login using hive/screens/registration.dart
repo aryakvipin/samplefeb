@@ -75,7 +75,7 @@ class Registration extends StatelessWidget {
         final passValidationResult = checkPassword(pass, cpass);
         if (passValidationResult == true) {
           final user = User(email: email, password: pass);
-          await DBFunction.instance.userSignUp(user);
+         await DBFunction.instance.userSignUp(user);
           Get.back();
           Get.snackbar("Success", "Account created");
         }

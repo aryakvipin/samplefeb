@@ -1,4 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
+
 part 'usermodel.g.dart';
 
 

@@ -20,6 +20,8 @@ void main() async {
     home: Login(),
   ));
 }
+
+
 class Login extends StatelessWidget {
   TextEditingController uname = TextEditingController();
   TextEditingController pass = TextEditingController();
@@ -73,7 +75,7 @@ class Login extends StatelessWidget {
 
     if(validate == true){
       await Future.forEach(userlist, (user) {
-        if(user.email == email  && user.password == password){
+        if(user.email == email && user.password == password){
           userFound = true;
         }else{
           userFound = false;

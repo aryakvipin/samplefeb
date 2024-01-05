@@ -2,6 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:sqflite/sqflite.dart' as sql;
 
 class SQLHelper {
+
+
+
+  ///1. create database
+  static Future<sql.Database> myData() async {
+    return sql.openDatabase('myNotes.db', version: 1,
+        onCreate: (sql.Database database, int version) async {
+      await createTables(database);
+    });
+  }
   /// 2. create table with notes and column name as title and note
   static Future<void> createTables(sql.Database database) async {
     await database.execute("""CREATE TABLE notes(
@@ -12,13 +22,7 @@ class SQLHelper {
       )""");
   }
 
-  ///1. create database
-  static Future<sql.Database> myData() async {
-    return sql.openDatabase('myNotes.db', version: 1,
-        onCreate: (sql.Database database, int version) async {
-      await createTables(database);
-    });
-  }
+
 
   /// add datas to  notes table inside myNotes.db
   static Future<int> createNote(String title, String note) async {
@@ -29,21 +33,25 @@ class SQLHelper {
     return id;
   }
 
+
+
+
   /// read all data from table
   static Future<List<Map<String, dynamic>>> readNotes() async {
     final db = await SQLHelper.myData(); ///to open database
     return db.query('notes', orderBy: 'id');
   }
 
-  ///read a single value from table
-  static Future<List<Map<String, dynamic>>> readSingleValue(int id) async {
-    final db = await SQLHelper.myData(); ///to open database
-    return db.query('notes', where: 'id = ?', whereArgs: [id], limit: 1);
-  }
+  // ///read a single value from table
+  // static Future<List<Map<String, dynamic>>> readSingleValue(int id) async {
+  //   final db = await SQLHelper.myData(); ///to open database
+  //   return db.query('notes', where: 'id = ?', whereArgs: [id], limit: 1);
+  // }
 
   ///to update a particular note
   static Future<int> updateNote(int id, String titlenew, String notenew) async {
     final db = await SQLHelper.myData(); ///to open database
+
     final newdata ={
       'title' : titlenew,
       'note'  : notenew,
@@ -53,6 +61,10 @@ class SQLHelper {
     return result;
 
   }
+
+
+
+
 
   static Future<void> deletenote(int id) async {
     final db = await SQLHelper.myData(); ///to open database
